@@ -10,7 +10,7 @@ enable_testing(true)
 get_filename_component(PROJECT_BASE_DIR ../../ ABSOLUTE)
 include_directories(${PROJECT_BASE_DIR})
 
-set(CMAKE_PREFIX_PATH "/opt/homebrew/Cellar/qt@5/5.15.8_1")
+set(CMAKE_PREFIX_PATH "/opt/homebrew/Cellar/qt@5/5.15.8_2")
 find_package(Qt5 REQUIRED COMPONENTS Core Widgets Test)
 
 set(

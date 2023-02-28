@@ -5,7 +5,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 # set(CMAKE_AUTOUIC ON) # Commented this out because I want to place my .ui files in a different folder
 
-set(CMAKE_PREFIX_PATH "/opt/homebrew/Cellar/qt@5/5.15.8_1")
+set(CMAKE_PREFIX_PATH "/opt/homebrew/Cellar/qt@5/5.15.8_2")
 set(QT_REQUIRED_PACKAGES Core Gui Widgets Multimedia)
 find_package(Qt5 REQUIRED COMPONENTS ${QT_REQUIRED_PACKAGES})
 
