@@ -45,13 +45,14 @@ qint64 QCircularBuffer::writeData(const char *data, qint64 maxSize)
                 m_readTails.insert(i.key(),m_writeHead);
                 m_validData.insert(i.key(),maxSize);
             }
-            else{
+            else {
                 m_validData.insert(i.key(),m_validData.value(i.key())+maxSize);
             }
             ++i;
         }
         m_writeHead += maxSize;
         m_lock.unlock();
+        emit readyRead();
         return maxSize;
     }
 
@@ -72,6 +73,7 @@ qint64 QCircularBuffer::writeData(const char *data, qint64 maxSize)
             }
             m_writeHead = maxSize-(m_bufferSize-m_writeHead);
             m_lock.unlock();
+            emit readyRead();
             return maxSize;
         }
         else {
@@ -85,6 +87,7 @@ qint64 QCircularBuffer::writeData(const char *data, qint64 maxSize)
             }
             m_writeHead = 0;
             m_lock.unlock();
+            emit readyRead();
             return m_bufferSize;
         }
     }
