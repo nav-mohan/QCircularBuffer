@@ -21,9 +21,9 @@ private:
 private slots:
     void initTestCase()
     {
-        m_circularBuffer = new QCircularBuffer();
+        m_circularBuffer = new QCircularBuffer(TESTBUFFERSIZE);
         QCOMPARE(m_circularBuffer->isOpen(),false);
-        m_circularBuffer->initialize(TESTBUFFERSIZE);
+        m_circularBuffer->initialize();
         QCOMPARE(m_circularBuffer->isOpen(),true);
         QCOMPARE(m_circularBuffer->isReadable(),true);
         QCOMPARE(m_circularBuffer->isWritable(),true);

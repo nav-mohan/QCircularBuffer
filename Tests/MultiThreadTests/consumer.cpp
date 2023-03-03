@@ -16,6 +16,12 @@ void Consumer::registerCircularBuffer(QCircularBuffer *cbuf) {
     m_circularBuffer = cbuf;
 }
 
-void Consumer::doWork() {
+void Consumer::burst() {
     qint64 bytesRead = m_circularBuffer->readTail(m_readBuffer,m_readBufferSize,m_consumerID);
+}
+
+void Consumer::run(){
+    qint64 bytesRead;
+    while (true)
+        bytesRead = m_circularBuffer->readTail(m_readBuffer,m_readBufferSize,m_consumerID);
 }

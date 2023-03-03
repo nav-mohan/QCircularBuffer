@@ -32,3 +32,14 @@ A re-implementation of the `QIODevice` class from the `Qt` framework. The `readD
 ## Protected Member Methods
 * _`qint64`_ `readData(`_`char`_ `*data`, _`qint64`_ `maxSize)`: Try to copy `maxSize` bytes of data from `m_buffer` into `data`. if `maxSize` bytes of valid data is not available, then copy just teh available bytes of data and return `n_available`. 
 * _`qint64`_ `writeData(`_`const char`_ `*data`, _`qint64`_ `maxSize)` : Copy `maxSize` bytes of data from `m_data` into `m_buffer`. 
+
+
+
+## Writing Tests
+* Implement `SIGNALS` for 
+    * `emit producerLoop()` : Producer looping around          
+    * `emit consumerLoop(consumerID)` : Consumer(consumerID) looping around   
+    * `emit consumerReset(consumerID)` : Consumer(consumerID) tail is reset    
+    * `emit QIODevice::readyRead()` : Producer is done writing         
+    * `emit doneRead(consumerID)` : Consumer(consumerID) is done reading  
+* There must be some relationship between these `SIGNALS`

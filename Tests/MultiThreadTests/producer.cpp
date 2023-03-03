@@ -1,6 +1,5 @@
 #include "producer.h"
 
-
 Producer::Producer(qint64 bufferSize) : m_writeBufferSize(bufferSize){}
 
 Producer::~Producer(){
@@ -17,6 +16,12 @@ void Producer::registerCircularBuffer(QCircularBuffer *cbuf) {
     m_circularBuffer = cbuf;
 }
 
-void Producer::doWork() {
+void Producer::burst() {
     qint64 bytesWritten = m_circularBuffer->write(const_cast<const char*>(m_writeBuffer),m_writeBufferSize);
+}
+
+void Producer::run() {
+    qint64 bytesRead;
+    while (true)
+        bytesRead = m_circularBuffer->write(const_cast<const char*>(m_writeBuffer),m_writeBufferSize);
 }

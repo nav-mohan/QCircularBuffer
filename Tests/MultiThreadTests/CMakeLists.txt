@@ -7,6 +7,11 @@ SET(CMAKE_INCLUDE_CURRENT_DIR ON)
 SET(CMAKE_AUTOMOC ON)
 enable_testing(true)
 
+set(IS_TESTING TRUE)
+if(IS_TESTING)
+    add_definitions(-DIS_TESTING="${IS_TESTING}")
+endif(IS_TESTING)
+
 get_filename_component(PROJECT_BASE_DIR ../../ ABSOLUTE)
 include_directories(${PROJECT_BASE_DIR})
 
